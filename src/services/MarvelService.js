@@ -1,6 +1,10 @@
+import Passwords from './env';
+
+const passwords = new Passwords();
 
 
 class MarvelService {
+    key = passwords.MARVEL_API_KEY;
     
     getResource = async (url) => {
         let res = await fetch(url);
@@ -13,12 +17,12 @@ class MarvelService {
 
     };
 
-    getAllCharacters = (key) => {
-        return this.getResource(`https://gateway.marvel.com:443/v1/public/characters?limit=9&offset=210&apikey=${key}`);
+    getAllCharacters = () => {
+        return this.getResource(`https://gateway.marvel.com:443/v1/public/characters?limit=9&offset=210&apikey=${this.key}`);
     };
 
-    getCharacter = (key, id) => {
-        return this.getResource(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${key}`);
+    getCharacter = (id) => {
+        return this.getResource(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${this.key}`);
     };
 
 };

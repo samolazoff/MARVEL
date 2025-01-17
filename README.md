@@ -2,6 +2,6 @@
 
 This learning project of course React by Petruchenco
 
-## Discriprion
+## Descriprion
 
 In the project directory, you can run:
